@@ -1,0 +1,45 @@
+
+.insertContainer{
+  width: 50%;
+  margin: 10px auto;
+}
+
+.insertTable{
+  width: 100%;
+  background-color: #eaeef7;
+  margin-top: 10px;
+}
+
+.insertTable tr > td > input,textarea{
+  width: 100%;
+}
+
+.insertTable tr > td{
+  border: 2px solid white;
+  padding: 6px 12px;
+  vertical-align: middle;
+}
+
+.insertTable tr > td:nth-child(odd){
+  font-weight: bold;
+  text-align: center;
+}
+
+.insertButton{
+  border-radius: 4px;
+  border: 0px;
+  padding: 4px 20px;
+  background-color: #5b9bd4;
+}
+
+.insertButton:hover{
+  cursor: pointer;
+  background-color: #4779a5;
+  color: white;
+}
+
+.divButton{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}

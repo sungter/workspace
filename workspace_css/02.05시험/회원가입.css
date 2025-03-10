@@ -1,0 +1,78 @@
+input:focus, select:focus{
+  outline: none;
+}
+
+.container{
+  margin: 50px;
+}
+
+.head{
+  display: flex;
+}
+
+.head > div:first-child {
+  border: 1px solid lightgray;
+  width: 20%;
+  padding: 8px;
+  background-color: rgb(243, 243, 243);
+}
+
+.head > div:nth-child(2){
+  border: 1px solid lightgray;
+  width: 80%;
+  padding: 8px;
+} 
+
+.red{
+  color: red;
+}
+
+.body {
+  margin-top: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.body_info{
+  display: flex;
+  flex-direction: column;
+}
+
+.body_info > div{
+  display: flex;
+  
+}
+.body_info > div>div:first-child{
+  width: 20%;
+  height: 1fr;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.body_info > div>div:nth-child(2){
+  width: 80%;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.addr{
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+select {
+  height: 100%;
+  width: 50px;
+  border:1px solid rgb(190, 190, 190);
+  border-radius: 4px;
+}
+
+input{
+  border:1px solid rgb(190, 190, 190);
+  border-radius: 4px;
+}
+

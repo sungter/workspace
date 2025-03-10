@@ -1,0 +1,63 @@
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* body, input, button, select, textarea{
+  font-family: 'S-CoreDream-3Light';
+  font-weight: 700;
+}
+
+* td, div{
+  font-weight: 500;
+}
+
+
+.headList{
+  background-color: #2d75b6;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.headList>div{
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.headList > div:hover{
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.headList > div:active{
+  box-shadow: -2px -2px 6px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
+
+textarea{
+  resize: none;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+/* active 클래스가 적용된 a태그 */
+a.active{
+  color: salmon;
+  font-weight: 900;
+  box-shadow: -2px -2px 6px  0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+  
+}
+

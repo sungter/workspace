@@ -1,0 +1,32 @@
+
+div{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 20px;
+  text-align: center;
+  line-height: 200px;
+}
+
+.d1{
+  background-color: darkcyan;
+}
+
+.d2{
+  background-color: darkgoldenrod;
+  
+  /* visivility는 요소는 숨기지만 공간은 살아있다. */
+  visibility: hidden;
+
+  /* 요소와 요소의 공간 모두 사라진다. */
+  /* display: none; */
+
+  /* 불투명도 조절 0~1 수치 표기 */
+  /* opacity: 0.5; */
+
+}
+
+.d3{
+  background-color: darkgreen;
+}
+

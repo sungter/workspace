@@ -1,0 +1,21 @@
+
+
+.mainBody {
+  margin: 0px auto;
+  border-collapse: collapse;
+}
+
+.mainBody > tbody td{
+  padding: 4px 12px;
+}
+
+.postButton{
+  display: block;
+  margin: 10px auto;
+}
+
+.postButton:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  border: 1px solid grey;
+}

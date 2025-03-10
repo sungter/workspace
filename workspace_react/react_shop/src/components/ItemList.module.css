@@ -1,0 +1,51 @@
+
+.container{
+  width: 90%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listTable{
+  width: 400px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.listTable > thead {
+  background-color: #5b9bd4;
+  color: white;
+}
+
+.listTable > thead td {
+  padding: 6px;
+  font-weight: bold;
+}
+
+.listTable > tbody > tr:nth-child(odd){
+  background-color: #d2deee;
+}
+
+.listTable > tbody > tr:nth-child(even){
+  background-color: #eaeef7;
+}
+
+.listTable > tbody td{
+  padding: 4px;
+}
+
+
+.listTable tr > td{
+  border: 2px solid white;
+}
+
+.length{
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.clickEvent:hover{
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -1,0 +1,76 @@
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.mainInfo{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mainInfo > thead td{
+  background-color: #4471c4;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 0px;
+}
+
+.mainInfo > tbody tr:nth-child(even){
+  background-color: #e9ebf5;
+}
+
+.mainInfo > tbody tr:nth-child(odd){
+  background-color: #cfd4ea;
+}
+
+.mainInfo > tbody td{
+  border: 1px solid white;
+  padding: 6px 0px;
+}
+
+.detailInfo{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detailInfo > tbody td:nth-child(odd){
+  background-color: #dae2f3;
+  padding: 6px 0px;
+  border: 1px solid white;
+}
+
+.detailInfo > tbody td:nth-child(even){
+  background-color: #e9ebf5;
+  padding: 6px 0px;
+  border: 1px solid white;
+  font-size: 1.5rem;
+}
+
+.clickEvent:hover{
+  cursor: pointer;
+  color: red;
+  text-decoration: underline red 2px wavy;
+  transition: all 1s;
+}
+
+
+
+.hide{
+  margin-top: 10px;
+  border: 0;
+  width: 60px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.hide:hover{
+  border: 1px solid grey;
+  cursor: pointer;
+  background-color: lightgray;
+  font-weight: bold;
+  scale: 1.1;
+  transition: all 1s;
+}

@@ -1,0 +1,37 @@
+/* 
+  position : relative -> 상대적인 위치(원래 위치의 상대적)
+  
+*/
+
+div{
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 300px;
+}
+
+
+
+.d1{
+  background-color: darkgoldenrod;
+}
+
+.d2{
+  background-color: darkcyan;
+}
+
+.d3{
+  background-color: darkgreen;
+}
+
+/* hover : d2 클래스에 마우스를 올리면~ */
+.d2:hover{
+  background-color: cyan;
+ 
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+}

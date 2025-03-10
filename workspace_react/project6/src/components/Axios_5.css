@@ -1,0 +1,42 @@
+.t1{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 1600px;
+  height: 850px;
+  margin: 0 auto;
+}
+
+.t1 tr, .t1 td{
+  border: 1px solid black;
+}
+
+.t1-tr > td{
+  text-align: center;
+  vertical-align: top;
+  padding: 16px;
+}
+
+button{
+  padding: 5px 15px;
+  font-weight: 900;
+}
+
+.allInfo{
+  width: 100%;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+.allInfo > thead td{
+  padding: 6px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  background-color: lightgray;
+}
+
+.allInfo > tbody  td{
+  padding: 10px;
+  font-weight: 600;
+}
+
+

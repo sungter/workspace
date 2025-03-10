@@ -1,0 +1,31 @@
+
+.click{
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 2.5rem;
+  color: white;
+  background-color: crimson;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+
+.buttonClick{
+  border-radius: 10px;
+  padding: 10px;
+  border: 0px;
+  font-weight: 700;
+}
+
+.buttonClick:hover{
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.clickFive{
+  display: flex;
+  gap: 10px;
+}
+

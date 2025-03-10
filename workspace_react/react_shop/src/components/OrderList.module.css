@@ -1,0 +1,67 @@
+
+.orderContainer{
+  width: 80%;
+  margin: 10px auto;
+}
+
+.orderListTable{
+  width: 100%;
+  text-align: center;
+}
+
+.orderListTable > thead td{
+  color: white;
+  background-color: #5b9bd4;
+  border: 2px solid white;
+}
+
+.orderListTable > tbody td{
+  border: 2px solid white;
+}
+
+.orderListTable > tbody > tr:nth-child(odd){
+  background-color: #d2deee;
+}
+
+.orderListTable > tbody > tr:nth-child(even){
+  background-color: #eaeef7;
+}
+
+.orderListTable > tbody td:nth-child(8){
+  background-color: white;
+}
+
+.orderListButton{
+  border-radius: 4px;
+  border: 0px;
+  padding: 2px 20px;
+  background-color: #5b9bd4;
+}
+
+.orderListButton:hover{
+  cursor: pointer;
+  background-color: #4779a5;
+  color: white;
+}
+
+.allPrice{
+  display: flex;
+  justify-content: end;
+  margin-top: 30px;
+}
+
+.allPrice > span:first-child{
+  padding: 6px;
+  background-color: #2d75b6;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.allPrice > span:nth-child(2){
+  width: 140px;
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 6px;
+  border-bottom: 1px solid #2d75b6;
+}

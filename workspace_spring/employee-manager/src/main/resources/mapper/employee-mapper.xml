@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.employee_manager.mapper.EmployeeMapper">
+
+    <select id="searchEmp" resultType="SearchDTO">
+        SELECT D.DEPT_NAME
+        , J.JOB_NAME
+        , E.EMP_NAME
+        , E.GENDER
+        , E.HIRE_DATE
+        FROM REACT_EMP E
+        INNER JOIN REACT_DEPT D
+        ON E.DEPT_NO = D.DEPT_NO
+        INNER JOIN REACT_JOB J
+        ON E.JOB_NO = J.JOB_NO
+        <where>
+            <if test="empName != null and empName != '' and empName != 'undefined'">
+                AND E.EMP_NAME LIKE CONCAT('%', #{empName}, '%')
+            </if>
+            <if test="deptName != null and deptName != '' and deptName != 'undefined'">
+                AND D.DEPT_NAME LIKE CONCAT('%', #{deptName}, '%')
+            </if>
+            <if test="gender != null and gender != '' and gender != 'undefined'">
+                AND E.GENDER = #{gender}
+            </if>
+            <if test="minHireDate != null and minHireDate != '' and minHireDate != 'undefined'">
+                AND E.HIRE_DATE &gt;= #{minHireDate}
+            </if>
+            <if test="maxHireDate != null and maxHireDate != '' and maxHireDate != 'undefined'">
+                AND E.HIRE_DATE &lt;= #{maxHireDate}
+            </if>
+        </where>
+    </select>
+
+
+    <insert id="regEmp">
+        INSERT INTO REACT_EMP(
+            EMP_NAME
+            , GENDER
+            , HIRE_DATE
+            , DEPT_NO
+            , JOB_NO
+        ) VALUES(
+            #{empName}
+            , #{gender}
+            , #{hireDate}
+            , #{deptNo}
+            , #{jobNo}
+        )
+    </insert>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

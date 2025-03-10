@@ -1,0 +1,19 @@
+
+.container{
+  margin: 0px auto;
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dept_insert{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dept_insert > input{
+  width: 80%;
+}
+
+

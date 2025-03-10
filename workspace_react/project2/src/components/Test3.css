@@ -1,0 +1,17 @@
+
+.buttonLook{
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.banner{
+  color: white;
+  width: 250px;
+  height: 50px;
+  background-color: crimson;
+  margin: 10px 0px;
+  text-align: center;
+  line-height: 50px;
+}
+

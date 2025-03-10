@@ -1,0 +1,25 @@
+
+.container {
+  width: 600px;
+  height: 400px;
+  margin: 20px auto;
+  border: 1px solid black;
+
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+}
+
+.container > div {
+  border: 1px solid red;
+}
+
+.container > div:nth-child(1) {
+  /* 열 병합 */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  /* 위 start, end와 같음 = grid-column: 1/3; */
+
+}
+
+

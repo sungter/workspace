@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif; 
+}
+
+body{
+  background-color: #758596;
+}
+
+.container {
+  margin: 10px 100px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+}
+
+.container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+button {
+  border: 0;
+  padding: 4px;
+  border-radius: 8px;
+  color: white;
+  background-color: rgb(255, 159, 159);
+}
+
+.maintext{
+  font-size: x-large;
+  font-weight: 700;
+  color: rgb(127, 229, 255);
+}
+.text {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.img-grid {
+  position: absolute;
+  z-index: 3;
+
+  border: 1px solid black;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(2, auto);
+
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 20px;
+}
+
+.back-con:hover {
+  position: relative;
+  z-index: 4;
+  
+  display: flex;
+  border: 1px solid black;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(2, auto);
+  
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 20px;
+}
+
+.back-con > div {
+  background-color: rgba(128, 128, 128, 0.178);
+  width: 400px;
+  height: 600px;
+}
+
+.back-flex {
+  position: relative;
+  z-index: 1;
+  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-flex > p:first-child{
+  font-weight: 700;
+  font-size: large;
+}
+
+.back-flex > p {
+  color: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.back-flex i {
+  margin: auto 6px;
+  font-size: 1.3rem;
+}
+

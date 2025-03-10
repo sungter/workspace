@@ -1,0 +1,41 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@font-face {
+  font-family: 'HakgyoansimDunggeunmisoTTF-B';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* body{
+  font-family: 'HakgyoansimDunggeunmisoTTF-B';
+  font-size: 1.1rem;
+  
+}
+
+
+span{
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.container{
+  width: 80%;
+  margin: 50px auto;
+}
+
+.container > h1{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.deco_image{
+  margin: 0px auto;
+  width: 600px;
+  height: 100px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI0eaGQ_y-pQKoAbG819MA8xzxIEzSGmQhww&s);
+  background-repeat: repeat-x;
+  background-size: 100px 100px;
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.board.mapper.ReplyMapper">
+
+	<select id="selectReplyList" resultType="ReplyDTO">
+        SELECT REPLY_NUM
+            , CONTENT
+            , WRITER
+            , REG_DATE
+            , BOARD_NUM
+        FROM BOARD_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <insert id="insertReply">
+        INSERT INTO BOARD_REPLY(
+            CONTENT
+            , WRITER
+            , BOARD_NUM
+        ) VALUES(
+            #{content}
+            , #{writer}
+            , #{boardNum}
+        )
+    </insert>
+
+    <delete id="deleteReply">
+        DELETE FROM BOARD_REPLY
+        WHERE REPLY_NUM = #{replyNum}
+    </delete>
+
+    <!-- 검색 기능 쿼리 연습 -->
+<!--    <select id="searchData" resultType="BoardDTO">-->
+<!--        SELECT BOARD_NUM-->
+<!--        , TITLE-->
+<!--        , WRITER-->
+<!--        , CONTENT-->
+<!--        , READ_CNT-->
+<!--        , REG_DATE-->
+<!--        FROM BOARD-->
+<!--        WHERE ${searchKeyword} LIKE CONCAT('%', #{searchValue}, '%')-->
+<!--        ORDER BY BOARD_NUM DESC-->
+<!--    </select>-->
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

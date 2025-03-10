@@ -1,0 +1,130 @@
+
+/* 1번 */
+.container-1 {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin: 30px auto;
+  width: 800px;
+  height: 500px;
+  justify-content: space-between;
+}
+
+.con1-div13 {
+  border: 3px solid cyan;
+  height: 10%;
+}
+
+.div-1 {
+  height: 80%;
+  border: 3px solid black;
+  display: flex;
+}
+
+.div-12 {
+  border: 3px solid red;
+  width: 20%;
+}
+
+.div-13 {
+  border: 3px solid blue;
+  width: 80%;
+}
+
+/* 2번 */
+
+.container-2 {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin: 30px auto;
+  width: 800px;
+  height: 500px;
+  justify-content: space-between;
+}
+
+.con2-div1{
+  display: flex;
+  border: 3px solid greenyellow;
+  height: 10%;
+}
+
+.con2-div1 > div:nth-child(1){
+  width: 60%;
+  border: 3px solid brown;
+}
+
+.con2-div1 > div:nth-child(2){
+  width: 40%;
+  border: 3px solid cyan;
+}
+
+.con2-div2 {
+  height: 80%;
+  display: flex;
+  border: 3px solid lightpink;
+}
+
+.con2-div2 > div:nth-child(1) {
+  width: 20%;
+  border: 3px solid brown;
+}
+
+.con2-div2 > div:nth-child(2) {
+  flex-grow: 1;
+  border: 3px solid springgreen;
+}
+
+.con2-div3 {
+  border: 3px solid red;
+  height: 10%;
+}
+
+.container-3 {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin: 30px auto;
+  width: 800px;
+  height: 500px;
+}
+
+.container-3 > div:first-child{
+  border: 3px solid brown;
+  flex-grow: 1;
+}
+
+.con3-div2 {
+  border: 3px solid green;
+  display: flex;
+  height: 80%;
+  justify-content: space-between;
+}
+
+.con3-div2 > div:nth-child(1) {
+  flex-grow: 1;
+  border: 3px solid darkblue;
+}
+
+.con3-div2-2 {
+  border: 3px solid darkblue;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.con3-div2-2 > div:nth-child(1) {
+  border: 3px solid blue;
+  flex-grow: 1;
+}
+
+.con3-div2-2 > div:nth-child(2) {
+  border: 3px solid blue;
+  flex-grow: 1;
+}
+
+.con3-div2-2 > div:nth-child(3) {
+  border: 3px solid blue;
+  flex-grow: 1;
+}
+

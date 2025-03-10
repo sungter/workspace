@@ -1,0 +1,20 @@
+
+.first{
+  height: 80px;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 6px;
+}
+
+.change{
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.second{
+  background-color: rgb(238, 238, 238);
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}

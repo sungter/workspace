@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.react_shop.mapper.TestMapper">
+
+    <!--
+        <resultMap> 태그는 조회 결과 데이터를 자바로 가져올 자료형을 직접
+        커스터마이징하는 기능
+        id 태그는 key값을 가진 column에 데이터베이스에서 조회되는 컬럼명을 작성
+        result 태그의 column에는 데이터베이스에서 조회되는 컬럼명을 작성
+        retult 태그의 property에는 조회되는 컬럼의 값을 자바로 가져올 변수명 작성
+        resultMap 태그의 type에는 변수들이 선언된 dto 클래스를 작성(패키지명 포함)
+    -->
+    <resultMap id="emp" type="EmpDTO">
+        <id     column="EMPNO"      property="empno" />
+        <result column="ENAME"      property="ename" />
+        <result column="job"        property="job" />
+        <result column="MGR"        property="mgr" />
+        <result column="HIREDATE"   property="hiredate" />
+        <result column="SAL"        property="sal" />
+        <result column="COMM"       property="comm" />
+        <result column="DEPTNO"     property="deptno" />
+
+        <!-- 1:1 관계일 때, 사용하는 태그 -->
+        <association javaType="DeptDTO"     property="deptDTO" >
+            <id      column="DEPTNO"        property="deptno" />
+            <result  column="DNAME"         property="dname" />
+            <result  column="LOC"           property="loc" />
+        </association>
+    </resultMap>
+
+
+    <!--
+        - select 태그는 조회한 결과 한 행의 데이터를 자바로 가져오는
+        방식을 지정해줘야한다.
+        - 이 방식은 resultType을 사용하는 방법, resultMap을 사용하는 방법이 있다
+        - 단, resultMap은 JOIN 결과를 가져올 때 용이한 방법이다.
+
+        - resultType 방식 : 상대적으로 코드량이 적다. (간편하다) ,
+                            JOIN 불가능(새로운 DTO 클래스 생성 후 가능)
+        - resultMap 방식 : 상대적으로 코드량이 많다(resultMap 추가 작성) ,
+                            JOIN 가능(새로운 DTO 클래스 없이 가능)
+    -->
+
+    <select id="getEmpList" resultMap="emp">
+        SELECT EMPNO, ENAME, SAL, EMP.DEPTNO, DNAME, LOC
+        FROM EMP
+        INNER JOIN DEPT
+        ON EMP.DEPTNO = DEPT.DEPTNO
+    </select>
+
+<!--    <select id="getEmpList" resultType="EmpDTO">-->
+<!--        SELECT E.EMPNO, E.ENAME, E.SAL, E.DEPTNO, D.DNAME, D.LOC-->
+<!--        FROM EMP E-->
+<!--        INNER JOIN DEPT D-->
+<!--        ON E.DEPTNO = D.DEPTNO-->
+<!--    </select>-->
+
+
+
+
+    <!-- 1:N 관계 resultMap 작성,// List<BoardReplyDTO> 변수 생성후 작성함 -->
+    <resultMap id="board" type="BoardDTO">
+        <id     column="BOARD_NUM"  property="boardNum"/>
+        <result column="TITLE"      property="title"/>
+        <result column="WRITER"     property="writer"/>
+        <result column="CONTENT"    property="content"/>
+        <result column="READ_CNT"   property="readCnt"/>
+        <result column="REG_DATE"   property="regDate"/>
+
+        <!-- 1:N 관계일 때, 사용하는 태그 => collection -->
+        <!-- BoardDTO.replyList // BoardDTO클래스 안 LIST<BoardReplyDTO> replyList -->
+        <collection property="replyList"    ofType="BoardReplyDTO" >
+            <id     column="REPLY_NUM"      property="replyNum" />
+            <result column="REPLY_CONTENT"  property="replyContent" />
+            <result column="REPLY_WRITER"   property="replyWriter" />
+            <result column="REPLY_REG_DATE" property="replyRegDate" />
+            <result column="BOARD_NUM"      property="boardNum" />
+        </collection>
+    </resultMap>
+
+    <select id="joinList" resultMap="board">
+        SELECT
+            B.BOARD_NUM
+            , TITLE, WRITER
+            , REPLY_CONTENT
+            , REPLY_WRITER
+        FROM BOARD B
+        INNER JOIN BOARD_REPLY R
+        ON B.BOARD_NUM = R.BOARD_NUM
+    </select>
+
+    <select id="getBoardList" resultMap="board">
+        SELECT *
+        FROM BOARD
+    </select>
+
+    <select id="getBoard" resultMap="board">
+        SELECT BOARD_NUM, TITLE, WRITER
+        FROM BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <!-- /////////////////////////////////////////////////////////////////// -->
+    <!-- 풀이 -->
+    <resultMap id="orderList" type="OrderDTO">
+        <id     column="ORDER_NUM"  property="orderNum" />
+        <result column="ITEM_NUM"   property="itemNum" />
+        <result column="BUYER"      property="buyer" />
+        <result column="BUY_CNT"    property="buyCnt" />
+        <result column="BUY_PRICE"  property="buyPrice" />
+        <result column="BUY_DATE"   property="buyDate" />
+
+        <!-- 1:1 관계일 때, 사용하는 태그 -->
+        <association javaType="ShopItemDTO"   property="shopItemDTO" >
+            <id      column="ITEM_NUM"        property="itemNum" />
+            <result  column="ITEM_NAME"       property="itemName" />
+            <result  column="ITEM_PRICE"      property="itemPrice" />
+            <result  column="SELLER"          property="seller" />
+            <result  column="ITEM_INTRO"      property="itemIntro" />
+            <result  column="REG_DATE"        property="regDate" />
+        </association>
+    </resultMap>
+
+
+    <select id="getOrderList" resultMap="orderList">
+        SELECT I.ITEM_NAME
+        , I.ITEM_PRICE
+        , O.BUY_CNT
+        , O.BUY_PRICE
+        , O.BUYER
+        , O.BUY_DATE
+        FROM order_info O
+        INNER JOIN item_info I
+        ON O.ITEM_NUM = I.ITEM_NUM
+        ORDER BY I.ITEM_NUM DESC
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

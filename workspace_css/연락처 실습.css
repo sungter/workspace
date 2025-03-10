@@ -1,0 +1,53 @@
+
+.container {
+  background-color: #caf4ff;
+  /* 100vh(viewfort height의 약자) : 페이지 스케일 따라서 채워줌 (내용물이 보이는 영역) */
+  height: 100vh;
+
+  /* 100vw (viewfort width의 약자) : 스크롤까지 포함한 영역 */
+  /* 100% : 스크롤 너비는 제외 */
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.member {
+  border-radius: 10px;
+  width: 400px;
+  background-color: white;
+  padding: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: all 0.7s;
+}
+
+img {
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  width: 20%;
+}
+
+.detail {
+  flex-grow: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.email {
+  color: #888888;
+  font-size: 0.9rem;
+}
+
+.member:hover {
+  scale: 0.9;
+}

@@ -1,0 +1,22 @@
+
+.redBox{
+  background-color: rgb(253, 80, 115);
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.blueBox{
+  background-color: lightskyblue;
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  margin-top: 10px;
+}

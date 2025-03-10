@@ -1,0 +1,60 @@
+
+/* 연습 */
+.img1{
+  border: 3px solid orange;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  z-index: 3;
+  filter:brightness(80%)
+}
+
+.img2{
+  border: 3px solid orange;
+  border-radius: 50%;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  z-index: 2;
+  filter:brightness(80%)
+}
+
+.img3{
+  border: 3px solid orange;
+  border-radius: 50%;
+  position: absolute;
+  left: 80px;
+  top: 40px;
+  z-index: 1;
+  filter:brightness(80%)
+}
+
+.img1:hover{
+  position: relative;
+  left: 0px;
+  top: 8px;
+  z-index: 4;
+  filter:brightness(100%)
+}
+
+.img2:hover{
+  position: relative;
+  left: 40px;
+  top: 8px;
+  z-index: 4;
+  filter:brightness(100%)
+}
+
+.img3:hover{
+  position: relative;
+  left: 80px;
+  top: 8px;
+  z-index: 4;
+  filter:brightness(100%)
+}
+
+
+
+/* 수업 */
+

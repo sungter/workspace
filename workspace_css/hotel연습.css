@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* * : 모든 요소에 적용 */
+*{
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.container {
+  background-color: #e0ffff;
+  height: 100vh;
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainbox {
+  border-radius: 10px;
+  background-color: white;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainbox i:hover {
+  color: red;
+}
+
+hr {
+  width: 95%;
+  height: 1px;
+  border: 0;
+  background-color: rgb(230, 227, 227);
+}
+
+.img_1 > img {
+  width: 360px;
+  height: 200px;
+}
+
+.img_1 > img:hover {
+  scale: 1.1;
+  transition: all 1s;
+}
+
+.img_1 > span {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+
+
+/* 2번째 가격 */
+.text_1 {
+  padding: 10px;
+}
+
+.text_1 > p:nth-child(1) {
+  font-weight: bold;
+}
+
+.text_1 > p:nth-child(2) {
+  color: #f8780f;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.text_1 > p:nth-child(3) {
+  color: gray;
+}
+
+/* 침실, 욕실 */
+
+.bedbath {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bedbath_1 {
+  display: flex;
+  gap: 6px;
+}
+
+.bedbath_1 > p:nth-child(2) {
+  font-weight: bold;
+}
+
+/* 마지막 이미지 */
+
+.lasttext {
+  margin: 0 10px;
+}
+
+.lastimg {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+}
+
+.lastimg img {
+  width: 40px;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.lastimg > div:nth-child(2) {
+  flex-grow: 1;
+}
+
+.lastimg > button {
+  width: 30%;
+  height: 30px;
+  background-color: #32cd32;
+  color: white;
+  border-radius: 8px;
+  border: 0;
+}
+.lastimg > button:hover {
+  background-color: #2ebb2e;
+}
+
+.lastimg p:nth-child(1) {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.lastimg p:nth-child(2) {
+  color: gray;
+  font-size: 15px;
+}
+

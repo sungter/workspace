@@ -1,0 +1,23 @@
+
+.headPerson td{
+  padding: 0px 20px;
+  text-align: center;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+table{
+  border: 0px;
+  background-color: white;
+}
+
+.bodyInfo  td{
+  background-color: white;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.showButton{
+  height: 100%;
+  border: 1px solid black;
+}

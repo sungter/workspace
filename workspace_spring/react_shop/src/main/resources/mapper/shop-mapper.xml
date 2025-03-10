@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.react_shop.mapper.ShopMapper">
+
+    <select id="selectItemList" resultType="ShopItemDTO">
+        SELECT ITEM_NUM
+        , ITEM_NAME
+        , ITEM_PRICE
+        , SELLER
+        , ITEM_INTRO
+        , REG_DATE
+        FROM ITEM_INFO
+        ORDER BY ITEM_NUM DESC
+    </select>
+
+    <select id="selectItem" resultType="ShopItemDTO">
+        SELECT ITEM_NUM
+        , ITEM_NAME
+        , ITEM_PRICE
+        , SELLER
+        , ITEM_INTRO
+        , REG_DATE
+        FROM ITEM_INFO
+        WHERE ITEM_NUM = #{itemNum}
+    </select>
+
+    <insert id="insertItem">
+        INSERT INTO ITEM_INFO(
+            ITEM_NAME
+            , ITEM_PRICE
+            , SELLER
+            , ITEM_INTRO
+        ) VALUES(
+            #{itemName}
+            , #{itemPrice}
+            , #{seller}
+            , #{itemIntro}
+        )
+    </insert>
+
+    <update id="updateItem">
+        UPDATE ITEM_INFO
+        SET ITEM_NAME = #{itemName}
+            , ITEM_PRICE = #{itemPrice}
+            , ITEM_INTRO = #{itemIntro}
+        WHERE ITEM_NUM = #{itemNum}
+    </update>
+
+    <delete id="deleteItem">
+        DELETE FROM ITEM_INFO
+        WHERE ITEM_NUM = #{itemNum}
+    </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

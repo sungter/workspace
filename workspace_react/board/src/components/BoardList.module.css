@@ -1,0 +1,74 @@
+
+.list_table{
+  width: 600px;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.second{
+  background-color: aqua;
+}
+
+.list_table > thead{
+  font-weight: bold;
+  background-color: rgb(253, 233, 206);
+}
+
+
+.list_table > tbody{
+  background-color: rgb(255, 250, 243);
+}
+
+.list_table tr > td{
+  border: 1px solid black;
+  padding: 6px 12px;
+}
+
+.list_table > tbody >tr >td:nth-child(2):hover{
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.list_table > button{
+  margin-top: 10px;
+}
+
+
+
+
+
+
+.regData tr > td {
+  border: 1px solid black;
+  padding: 6px 12px;
+  background-color: rgb(255, 250, 243);
+}
+
+.regData tr input{
+  background-color: rgb(255, 250, 243);
+  border: 1px solid grey;
+}
+
+.regData tr textarea{
+  background-color: rgb(255, 250, 243);
+  border: 1px solid grey;
+}
+
+.regContainer{
+  width: 600px;
+  margin: 10px auto;
+}
+
+.regContainer > button{
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.practice{
+  border: 4px solid rgb(241, 116, 116);
+  margin-top: 30px;
+  border-style: dashed;
+}
+
+

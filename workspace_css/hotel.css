@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: lightcyan;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 360px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0px 3px 6px #dddddd;
+  overflow: hidden;
+}
+
+.img-div {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.img-div> img:hover {
+  scale: 1.1;
+}
+
+.img-div > img {
+  /* 이미지의 w,h 값을 변경하면 가로세로 비율 망가진다. */
+  width: 100%;
+  height: 100%;
+
+  /* contain : 이미지의 잘리는 부분은 없지만 여백 발생한다. */
+  /* cover : 여백은 없지만 이미지가 잘릴수도 있다. */
+  object-fit: cover;
+  
+  /* 이미지가 보여질 위치를 지정 */
+  /* 첫번째 값 : 가로정렬, 두번째 값 : 세로정렬 */
+  /* 가로 값 : left, right, center */
+  /* 세로 값 : top, bottom, center */
+  object-position: center center;
+  transition: all 1s;
+}
+
+.img-div > span {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+}
+.img-div > span:hover{
+  cursor: pointer;
+  color: rgb(255, 110, 110);
+}
+
+.detail-div {
+  padding: 10px;
+}
+
+.detail-2 {
+  margin: 12px 0px;
+  padding: 20px 0px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+.info > img {
+  width: 40px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}
+
+.detail-3 button {
+  border: none;
+  border-radius: 6px;
+  background-color: limegreen;
+  color: white;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.detail-3 button:hover {
+  background-color: rgb(40,195,40);
+}

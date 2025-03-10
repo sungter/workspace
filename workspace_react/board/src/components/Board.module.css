@@ -1,0 +1,55 @@
+
+
+.show_table{
+  width: 600px;
+  margin: 30px auto;
+}
+
+.show_table tr > td{
+  border: 1px solid black;
+  padding: 16px;
+}
+
+.show_table tr > td:nth-child(odd){
+  font-weight: bold;
+  background-color: hwb(0 45% 55% / 0.3);
+  text-align: center;
+}
+
+.insert_reply{
+  text-align: center;
+  width: 500px;
+  margin: 20px auto;
+  background-color: rgb(225, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.showReply{
+  width: 500px;
+  margin: 10px auto;
+}
+
+
+
+.showReply tr>td {
+  padding: 6px 12px;
+}
+
+.button_list{
+  width: 600px;
+  margin: 20px auto;
+}
+
+.button_list > button {
+  margin-right: 10px;
+}
+
+hr{
+  border: 1px solid rgb(209, 209, 209);
+  width: 100%;
+}
+
+.delete_button{
+  padding: 6px;
+}

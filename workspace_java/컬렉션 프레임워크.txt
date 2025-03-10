@@ -1,0 +1,6 @@
+컬랙션 프레임워크(Collection Framework)
+Collection : 데이터 모음집
+Framework : 반제품, 기능 모음집
+-> 다수의 데이터를 저장하고, 수정하고, 읽는 기능을 
+    만들어 놓은 문법.
+
