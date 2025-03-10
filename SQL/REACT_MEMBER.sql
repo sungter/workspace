@@ -1,0 +1,48 @@
+
+#회원 테이블
+CREATE TABLE REACT_MEMBER(
+	MEM_ID VARCHAR(10) PRIMARY KEY
+	, MEM_NAME VARCHAR(10) NOT NULL
+	, MEM_PW VARCHAR(10) NOT NULL
+	, MEM_TELL VARCHAR(15) UNIQUE
+	, MEM_INTRO VARCHAR(30)
+	, JOIN_DATE DATETIME DEFAULT SYSDATE()
+);
+
+INSERT INTO REACT_MEMBER 
+VALUES(
+	'java'
+	, '김자바'
+	, '1111'
+	, '010-1111-1111'
+	, '안녕하세요~ 김자바에옹~'
+	, NOW()
+);
+
+INSERT INTO REACT_MEMBER 
+VALUES(
+	'react'
+	, '홍자바'
+	, '222'
+	, '010-1111-2222'
+	, '안녕하세요~ 홍자바에옹~'
+	, NOW()
+);
+
+INSERT INTO REACT_MEMBER 
+VALUES(
+	'spring'
+	, '이자바'
+	, '3333'
+	, '010-1111-3333'
+	, '안녕하세요~ 이자바에옹~'
+	, NOW()
+);
+COMMIT;
+ROLLBACK;
+
+DELETE FROM react_member
+WHERE MEM_NAME = '';
+
+
+SELECT * FROM REACT_MEMBER;

@@ -1,0 +1,46 @@
+
+-- 연습용 자동차 정보 테이블
+CREATE TABLE TEST_CAR(
+	MODEL_NUMBER INT PRIMARY KEY -- 중복데이터 X, NULL X
+	, MODEL_NAME VARCHAR(20) NOT NULL
+	, PRICE INT
+	, BRAND VARCHAR(20)
+);
+
+SELECT * FROM test_car;
+
+
+-- 게시글 정보
+CREATE TABLE BOARD(
+	BOARD_NUM INT PRIMARY KEY
+	, TITLE VARCHAR(30) NOT NULL
+	, WRITER VARCHAR(20)
+	, READ_CNT INT DEFAULT 0
+);
+
+SELECT * FROM BOARD;
+
+-- 데이터 삽입
+-- 다양한 삽입 방법
+-- INSERT INTO 테이블명 (컬럼, 컬럼...) VALUES (데이터, 데이터...);
+INSERT INTO BOARD (BOARD_NUM, TITLE, WRITER, READ_CNT) 
+VALUES (2, '제목1', '김자바', 0);
+
+INSERT INTO BOARD (BOARD_NUM, TITLE, READ_CNT) 
+VALUES (3, '제목3', 3);
+
+-- ▼ 오류! TITLE 조건 불만족으로 인한 오류!
+INSERT INTO BOARD (BOARD_NUM, READ_CNT) 
+VALUES (4, 3);
+
+INSERT INTO BOARD (BOARD_NUM, TITLE) 
+VALUES (5,'제목3');
+
+INSERT INTO BOARD VALUES(6, '제목6', 'KIM', 10);
+
+-- 최종적으로 데이터 입력 후 취소
+ROLLBACK;
+
+-- 최종적으로 데이터 입력 후 확정
+COMMIT;
+
