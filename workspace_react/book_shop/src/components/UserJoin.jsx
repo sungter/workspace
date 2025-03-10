@@ -88,10 +88,20 @@ const UserJoin = () => {
     //   });
     // }
 
-    setInsertData({
-      ...insertData,
-      [e.target.name] : e.target.value
-    });
+    if(e.target.name === 'tel1' || e.target.name === 'tel2' || e.target.name === 'tel3'){
+      setInsertData({
+        ...insertData,
+        [e.target.name] : e.target.value.replace(/[^0-9]/g, "")
+      })
+    }
+    else{
+      setInsertData({
+        ...insertData,
+        [e.target.name] : e.target.value
+      });
+    }
+
+    
     
   };
 
