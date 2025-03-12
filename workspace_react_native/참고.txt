@@ -1,0 +1,7 @@
+앱 개발 : android, ios
+ -> android : java, kotlin
+ -> ios : object-c, swift
+☞ 네이티브 개발(방식)
+
+리액트 네이티브 : 앱 개발(멀티 플랫폼)
+플러터(flutter) - 개인적 앱 개발 공부시 추천?
