@@ -32,7 +32,7 @@ export const data = [
 const findData = data.find(e => e.id === 2); // data.find( (e) => {return e.id === 2} );
 
 //filter 사용법 예시
-//filter : return문에 작성한 조건과 일치하는 데이터를 제외한 남은 데이터만 리턴해준다.
-const filterData = data.filter((e) => { return e.id === 2 });
 //한개만 뽑아낼 때, 조건의 부정쓰면 한 데이터만 뽑아낼 수 있다.
+const filterData = data.filter((e) => { return e.id === 2 });
+//filter : return문에 작성한 조건과 일치하는 데이터를 제외한 남은 데이터만 리턴해준다.
 const filterData2 = data.filter((e) => { return e.id !== 2 });

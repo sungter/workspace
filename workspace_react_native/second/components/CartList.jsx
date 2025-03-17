@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import icon_edit from '@/assets/icons/edit.png'
 import icon_delete from '@/assets/icons/delete.png' //@ : 최상위 위치에서...~
 import { icon } from '../constants/icons'
 import { data } from '../data/data'
 import MyTextInput from './MyTextInput'
+import Task from './Task'
 
 const CartList = () => {
   const [cartList, setCartList] = useState(data);
@@ -15,7 +16,7 @@ const CartList = () => {
 
   return (
     <View>
-      <Text>CartList</Text>
+      <Text style={styles.mainText}>CartList</Text>
 
       {/* <Text>
         <Image source={icon_edit} />
@@ -33,12 +34,7 @@ const CartList = () => {
       {
         cartList.map((e, i) => {
           return(
-            <View key={i} style={styles.container} >
-              <Text style={styles.title} >{e.item}</Text>
-              <Image source={icon.ICON_EDIT}/>
-              <Image source={icon.ICON_DELETE}/>
-              <Text>{e.id}</Text>
-            </View>
+            <Task key={i} e={e} cartList={cartList} setCartList={setCartList} />
           )
         })
       }
@@ -91,22 +87,14 @@ const CartList = () => {
 export default CartList
 
 const styles = StyleSheet.create({
-  container : {
-    borderWidth : 1,
-    margin : 12,
-    backgroundColor : '#eeeeee',
-    borderRadius : 4,
-    padding : 10,
-    flexDirection : 'row',
-    alignItems : 'center',
-    justifyContent : 'space-between',
-    gap : 10
-  },
-
-  title : {
-    flex : 1,
-    borderWidth : 1,
-    fontSize : 18,
+  mainText : {
+    fontSize : 30,
+    fontWeight : '700',
+    marginHorizontal : 'auto',
+    backgroundColor : '#E3D2C3',
+    paddingHorizontal : 30,
+    borderRadius : 6,
+    color : 'grey'
   },
 
   insertInput : {

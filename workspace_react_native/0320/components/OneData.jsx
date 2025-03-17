@@ -1,6 +1,6 @@
 
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { icon } from '../constants/icons'
 import MyTextInput from './MyTextInput';
 
@@ -11,12 +11,22 @@ const OneData = ({i, e, deleteList, setDoList, doList}) => {
   //수정시 input태그에 입력받은 값 저장할 변수
   const [newData, setNewData] = useState('');
 
+  useEffect(() => {
+    setNewData(e.text)
+  } , [e]);
 
-  const addData = doList.filter((e) => {return e.id !== i})
+  //수정하는 함수
+  const handleData = () => {
+    const copyDoList = [...doList]
+    const findData = copyDoList.find((data) => {return data.id === e.id});
+    findData.text = newData;
+    setDoList(copyDoList);
+  };
+
 
   return (
     isShow ? 
-    <View key={i} style={styles.oneList} >
+    <View style={styles.oneList} >
                     
       <Text style={styles.listText}>{e.text}</Text>
 
@@ -36,20 +46,18 @@ const OneData = ({i, e, deleteList, setDoList, doList}) => {
       
     </View>
     :
-    <View key={i} style={styles.oneList}>
+    <View style={styles.oneList}>
       <MyTextInput 
-        onBlur={e => setIsShow(true)} 
+        autoFocus={true}
+        onBlur={e => {
+          setIsShow(true)
+          setNewData(e.text)
+        }} 
         value={newData}
         onChangeText = {text => setNewData(text)}
 
         onSubmitEditing={(e) => {
-          
-
-          setDoList({
-            ...addData,
-
-          })
-          
+          handleData()
         }}
       />
     </View>

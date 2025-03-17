@@ -1,5 +1,5 @@
 import { Button, Image, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MyTextInput from './MyTextInput'
 import MyButton from './MyButton'
 import { data } from '../data/data'
@@ -21,7 +21,10 @@ const ToDoList = () => {
     setDoList(filterData)
     console.log(filterData)
   };
+  
+  
 
+  
   return (
     <View>
       <Text>TO DO LIST</Text>
@@ -57,7 +60,14 @@ const ToDoList = () => {
           doList.map((e, i) => {
             return(
               
-              <OneData i={i} e={e} deleteList={deleteList} setDoList={setDoList} doList={doList} />
+              <OneData 
+                key={i} 
+                i={i}
+                e={e} 
+                deleteList={deleteList} 
+                setDoList={setDoList} 
+                doList={doList} 
+              />
               
             )
           })
