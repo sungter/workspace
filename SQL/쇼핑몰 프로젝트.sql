@@ -44,5 +44,18 @@ CREATE TABLE SHOP_USER(
 	, JOIN_DATE DATETIME DEFAULT SYSDATE()
 );
 
+INSERT INTO SHOP_USER VALUES(
+	'admin',
+	'1111',
+	'admin',
+	'eroo@naver.com',
+	'010-1234-1122',
+	'ADMIN',
+	'Y',
+	NOW()
+);
+
+COMMIT;
+
 SELECT * FROM SHOP_USER;
 
