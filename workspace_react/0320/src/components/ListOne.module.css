@@ -1,0 +1,16 @@
+.oneList{
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #deebf7;
+  gap: 10px;
+}
+
+.e_text{
+  font-size: 1.1rem;
+  flex: 1;
+}
