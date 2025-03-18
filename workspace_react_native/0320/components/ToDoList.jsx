@@ -19,7 +19,6 @@ const ToDoList = () => {
     const filterData = doList.filter((e) => {return e.id !== doList[i].id});
 
     setDoList(filterData)
-    console.log(filterData)
   };
   
   
@@ -27,7 +26,7 @@ const ToDoList = () => {
   
   return (
     <View>
-      <Text>TO DO LIST</Text>
+      <Text style={styles.main_text} >TO DO LIST</Text>
 
 
       <View style={styles.insertContainer}>
@@ -83,6 +82,12 @@ const ToDoList = () => {
 export default ToDoList
 
 const styles = StyleSheet.create({
+
+  main_text : {
+    fontSize : 40,
+    fontWeight : '900',
+    margin : 10
+  },
   
   insertContainer : {
     flexDirection : 'row',
