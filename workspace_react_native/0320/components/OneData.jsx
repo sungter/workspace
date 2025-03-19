@@ -49,7 +49,7 @@ const OneData = ({i, e, deleteList, setDoList, doList}) => {
     <View style={styles.oneList}>
       <MyTextInput 
         autoFocus={true}
-        onBlur={e => {
+        onBlur={event => {
           setIsShow(true)
           setNewData(e.text)
         }} 

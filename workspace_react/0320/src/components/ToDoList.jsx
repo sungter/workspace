@@ -9,18 +9,30 @@ const ToDoList = () => {
   //등록 input 태그 데이터 저장할 변수
   const [regData, setRegData] = useState('');
 
+  //등록 데이터가 없을때 나타나는 경고문
+  const [errorText, setErrorText] = useState();
+
   //등록 버튼 클릭시 toDoList 변경할 함수
   const handleList = () => {
     //const newList = toDoList.map((e) => {return e.id})
     const maxId = Math.max(...(toDoList.map((e) => {return e.id}))) + 1
 
-    setToDoList([
-      ...toDoList,
-      {
-        id : maxId,
-        text : regData
-      }
-    ])
+    if(regData === ''){
+      return
+    }
+    else{
+      setToDoList([
+        ...toDoList,
+        {
+          id : maxId,
+          text : regData
+        }
+      ])
+    }
+
+    
+
+    setRegData('')
   };
 
   return (
@@ -40,6 +52,8 @@ const ToDoList = () => {
 
         <button type='button' onClick={(e) => {handleList()}}>등 록</button>
       </div>
+
+
 
       <div className={styles.listBox}>
         {

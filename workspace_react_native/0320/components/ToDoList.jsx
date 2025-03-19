@@ -6,6 +6,7 @@ import { data } from '../data/data'
 import { icon } from '../constants/icons'
 import OneData from './OneData'
 
+
 const ToDoList = () => {
   //toDoList 데이터 변수
   const [doList, setDoList] = useState(data);
@@ -43,10 +44,16 @@ const ToDoList = () => {
               text : insertData
             }
 
-            setDoList([
-              ...doList,
-              newInsertData
-            ])
+            if(insertData === ''){
+              return
+            }
+            else{
+              setDoList([
+                ...doList,
+                newInsertData
+              ])
+            }
+            
 
             setInsertData('')
           }}
@@ -107,6 +114,7 @@ const styles = StyleSheet.create({
     padding : 10,
     gap : 10,
     backgroundColor : 'grey',
-    margin : 20
+    margin : 20,
+    borderRadius : 6
   }
 })
