@@ -12,6 +12,7 @@ const MyTextInput = ({placeholder='', ...props}) => {
       placeholder={placeholder}
       {...props}
       
+      
     />
   )
 }

@@ -44,12 +44,13 @@ CREATE TABLE SHOP_USER(
 	, JOIN_DATE DATETIME DEFAULT SYSDATE()
 );
 
-INSERT INTO SHOP_USER VALUES(
+# 관리자 정보 INSERT
+INSERT INTO shop_user VALUES(
 	'admin',
 	'1111',
-	'admin',
+	'관리자',
 	'eroo@naver.com',
-	'010-1234-1122',
+	'010-9874-1234',
 	'ADMIN',
 	'Y',
 	NOW()
@@ -58,4 +59,13 @@ INSERT INTO SHOP_USER VALUES(
 COMMIT;
 
 SELECT * FROM SHOP_USER;
+
+
+
+
+
+
+
+
+
 

@@ -35,6 +35,7 @@ const ToDoList = () => {
           placeholder='+ Add a Task' 
           value={insertData}
           onChangeText = {text => setInsertData(text)}
+          onBlur={e => setInsertData('')}
 
           onSubmitEditing={(e) => {
             const max = Math.max(...(doList.map((e, i) => {return e.id})))
@@ -54,9 +55,9 @@ const ToDoList = () => {
               ])
             }
             
-
             setInsertData('')
           }}
+          
         />
       </View>
       
