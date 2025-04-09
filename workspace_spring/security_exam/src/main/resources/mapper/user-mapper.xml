@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.security_exam.mapper.UserMapper">
+
+    <insert id="join">
+        INSERT INTO SECURITY_MEMBER(
+            MEM_EMAIL
+            , MEM_PW
+            , MEM_NAME
+            , MEM_ROLE
+        ) VALUES(
+            #{memEmail}
+            , #{memPw}
+            , #{memName}
+            , #{memRole}
+        )
+    </insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
