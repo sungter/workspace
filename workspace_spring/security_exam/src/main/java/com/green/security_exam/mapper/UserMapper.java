@@ -8,4 +8,5 @@ public interface UserMapper {
 
   public void join(MemberDTO memberDTO);
 
+  public MemberDTO getMemberForLogin(String memEmail);
 }

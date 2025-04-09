@@ -1,62 +1,45 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 const SafetydataTest = () => {
-
-  const [responseData, setResponseData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // API 요청을 위한 기본 URL과 파라미터 설정
-    const dataName = "데이터명";  // 필요시 설정
-    const serviceKey = "서비스키";  // 실제 서비스키로 변경
-    const pageNo = "1";
-    const numOfRows = "10";
+    const apiKey = 'R48UF0HJOIUF67UD'; // 서비스 키
+    const apiUrl = 'https://api.safedata.go.kr//V2/api/DSSP-IF-00247'; // 예시 API URL (실제 URL을 확인 필요)
 
-    const url = new URL("https://www.safetydata.go.kr/V2/api/DSSP-IF-00247");
-    const params = {
-      serviceKey: serviceKey,
-      pageNo: pageNo,
-      numOfRows: numOfRows,
-    };
-
-    // URL에 파라미터 추가
-    Object.keys(params).forEach((key) => url.searchParams.append(key, params[key]));
-
-    // API 호출
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
-        if (response.ok) {
-          const data = await response.json();  // 응답이 JSON이라 가정
-          setResponseData(data);
-        } else {
-          throw new Error('API 요청에 실패했습니다.');
-        }
+        // API 호출
+        const response = await axios.get(apiUrl, {
+          headers: {
+            'Authorization': `Bearer ${apiKey}`, // 또는 'X-Api-Key': apiKey
+            'Content-Type': 'application/json'
+          },
+          params: {
+            // 추가적인 파라미터가 필요할 경우
+            // 예시: 예를 들어 'page=1&size=10'
+            page: 1,  // 페이지 번호 예시
+            size: 10  // 한 번에 가져올 데이터의 개수 예시
+          }
+        });
+
+        setData(response.data); // 응답 데이터를 상태에 저장
       } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
+        setError(error.message); // 에러 발생 시 에러 메시지 상태에 저장
       }
     };
 
     fetchData();
-  }, []);  // 컴포넌트 마운트 시 한 번 실행
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  }, []);
 
   return (
     <div>
-      <h1>API 응답 데이터</h1>
-      <pre>{JSON.stringify(responseData, null, 2)}</pre>
+      {error && <p>Error: {error}</p>}
+      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
     </div>
-  )
-}
+  );
+};
 
 export default SafetydataTest

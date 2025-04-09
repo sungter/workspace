@@ -1,6 +1,9 @@
 package com.green.security_exam.config;
 
+import com.green.security_exam.jwt.JwtConfirmFilter;
+import com.green.security_exam.jwt.JwtUtil;
 import com.green.security_exam.jwt.LoginFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,10 +21,12 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+@RequiredArgsConstructor
 @Configuration //객체 생성 + 해당 클래스에 설정 내용이 들어있음을 알려줌
 @EnableWebSecurity //해당 클래스가 security 설정을 컨트롤할 수 있도록 세팅하는 어노테이션
 @EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig {
+  private final JwtUtil jwtUtil;
 
   //실제 시큐리티의 인증 & 인가에 대한 설정 코드를 작성하는 메서드
   @Bean
@@ -42,14 +47,19 @@ public class SecurityConfig {
         //인증 및 인가에 대한 접근 설정
         .authorizeHttpRequests( auth ->
                 //auth.anyRequest().permitAll() //아무나 접근을 허용하겠다.
-                auth.requestMatchers("/test2","/test1").authenticated()
+                auth.requestMatchers("/test2").authenticated()
+                        .requestMatchers("/test3").hasRole("ADMIN") //관리자만 접근 가능
                         .anyRequest().permitAll() //test1, test2는 인증되면 실행
                 //(조건에 맞게 바뀔 수 있음!!)
         );
 
+    //모든 요청에서 토큰을 검증하는 JwtConfirmFilter 클래스를 SecurityFilterChain에 추가
+    //JwtConfirmFilter 클래스는 LoginFilter가 진행되기 전에 실행되도록 설정 함
+    http.addFilterBefore(new JwtConfirmFilter(jwtUtil), LoginFilter.class);
+
     //원래 로그인 요청을 받는 UsernamePasswordAuthenticationFilter 대신
     //우리가 커스터마이징한 LoginFilter를 사용하도록 필터 교체!
-    http.addFilterAt(new LoginFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class);
+    http.addFilterAt(new LoginFilter(authenticationManager, jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
     return http.build();
   }

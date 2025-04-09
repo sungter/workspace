@@ -1,0 +1,4 @@
+1. SecurityConfig 클래스의 권한 부분만 교체(controller에서 @PreAuthorize() 어노테이션을 쓸거면 auth.anyRequest().permitAll() 이것만 써도됨)
+2. DTO 사용하는 형태 맞게 변경(dto쓴 코드 중 getter,setter 사용한 것 교체) => ex) getMemEmail() 을 교체한 내용의 getter로 변경해줘야함
+3. LoginFilter 클래스 url, username, password 변경
+4. 쿼리문 등등 교체~
