@@ -35,7 +35,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     this.authenticationManager = authenticationManager;
     this.jwtUtil = jwtUtil;
 
-    setFilterProcessesUrl("/users/login"); //로그인 요청 url 변경
+    setFilterProcessesUrl("/member/login"); //로그인 요청 url 변경
     setUsernameParameter("memEmail"); //로그인 요청 id key값 변경 (변경 안하면 아이디는 username로 전달)
     setPasswordParameter("memPw"); //로그인 요청 pw key값 변경 (변경 안하면 아이디는 password로 전달)
   }
@@ -77,8 +77,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     return authentication;
   }
 
-  ///인증 성공시 자동으로 실행되는 메서드
-  /// 인증된 유저에게 토큰을 발급하는 코드를 작성
+  //인증 성공시 자동으로 실행되는 메서드
+  // 인증된 유저에게 토큰을 발급하는 코드를 작성
   @Override
   protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
     log.info("로그인 검증 성공! successfulAuthentication 메서드 호출!");
@@ -102,7 +102,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     response.setStatus(HttpStatus.OK.value()); //클라이언트에 200 응답
   }
 
-  ///인증 실패시 자동으로 실행되는 메서드
+  //인증 실패시 자동으로 실행되는 메서드
   @Override
   protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
     log.info("로그인 검증 실패");
