@@ -26,8 +26,18 @@ export default function RootLayout() {
 
   return (
     <>
+      {/* 
+        - 안드로이드 때문에 사용함 - (IOS는 기본 SafeAreaView만 적용해도 statusbar 침범 x)
+        translucent : 기본값 true, 투명도 및 범위 설정
+        true : 반투명 + statusbar 범위 침범
+        false : 불투명 + statusbar 범위 침범 x
+      */}
+      <StatusBar 
+        style="auto" 
+        translucent={false} 
+      /> 
+
       <Stack screenOptions={{headerShown : false}} />
-      <StatusBar style="auto" />
     </>
   );
 }
