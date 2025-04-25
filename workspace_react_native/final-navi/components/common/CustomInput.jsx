@@ -1,8 +1,12 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
-import { colors } from '../../constants/colorConstant'
+import { StyleSheet, Text, View, TextInput } from 'react-native'
+import React, { useState } from 'react'
+import {colors} from '@/constants/colorConstant'
 
-const CustomInput = ({label, isPw = false, ...props}) => {
+
+
+const CustomInput = ({label, isPw=false, ...props}) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <View>
       {
@@ -10,8 +14,10 @@ const CustomInput = ({label, isPw = false, ...props}) => {
       }
       <View style={styles.container}>
         <TextInput 
-          style={styles.input}
+          style={[styles.input, isFocused && styles.focused]}
           secureTextEntry={isPw}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           {...props}
         />
       </View>
@@ -22,24 +28,25 @@ const CustomInput = ({label, isPw = false, ...props}) => {
 export default CustomInput
 
 const styles = StyleSheet.create({
-  label : {
-    color : colors.GRAY_500,
-    fontSize : 12,
+  label :{
+    fontSize : 14,
     marginBottom : 6,
+    color : colors.GRAY_500
   },
+  container:{
 
-  container : {
-    height : 44,
+  },
+  input :{
+    fontSize :16,
+    height : 42,
     borderRadius : 8,
     paddingHorizontal : 10,
     justifyContent : 'center',
     backgroundColor : colors.GRAY_100,
-    borderColor : colors.ORANGE_600,
-    borderWidth : 1,
+    borderColor : colors.GRAY_500,
+    borderWidth : 1
   },
-
-  input : {
-    fontSize : 16,
-    flex : 1,
-  },
+  focused :{
+    borderColor : colors.ORANGE_700
+  }
 })

@@ -20,5 +20,15 @@ icon 사용 라이브러리
 npm install @expo/vector-icons
 아이콘 웹 페이지 : https://icons.expo.fyi/Index
 
+로그인 사용 secure-store 라이브러리
+npx expo install expo-secure-store   ( import * as SecureStore from 'expo-secure-store'; )
 
+redux 사용 라이브러리
+npm install @reduxjs/toolkit react-redux
+
+jwt 사용
+npm install install jwt-decode
+
+이미지 업로드 라이브러리
+npx expo install expo-image-picker (import * as ImagePicker from 'expo-image-picker';)
 

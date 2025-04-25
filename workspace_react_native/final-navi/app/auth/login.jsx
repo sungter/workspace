@@ -1,59 +1,63 @@
-
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import CustomInput from '../../components/common/CustomInput'
 import CustomButton from '../../components/common/CustomButton'
 import { api_login } from '../../apis/memberApi'
-import * as SecureStore from 'expo-secure-store'
+import * as SecureStore from 'expo-secure-store';
+import { useRouter } from 'expo-router'
+import { useDispatch } from 'react-redux'
+import { loginReducer } from '../../redux/authSlice'
 
 const LoginScreen = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const [loginData, setLoginData] = useState({
     memEmail : '',
     memPw : ''
   });
 
-  const handleLoginData = (text, keyValue) => {
+  const handleLoginData = (text, name) => {
     setLoginData({
       ...loginData,
-      [keyValue] : text
-    })
-  };
+      [name] : text
+    });
+  }
 
   const login = () => {
     api_login(loginData)
-      .then(async res => {
-        alert('성공');
+    .then(res => {
+      const token = res.headers.authorization;
 
-        const token = res.headers.authorization;
-
-        await SecureStore.setItemAsync('accessToken', String(token));
-        const savedToken = await SecureStore.getItemAsync('accessToken');
-        console.log(savedToken);
+      SecureStore.setItemAsync('accessToken', token)
+      .then(() => {
+        dispatch(loginReducer(token))
+        router.navigate('/')
       })
       .catch(e => console.log(e));
-  };
+    })
+    .catch(e => console.log(e));
+  }
 
   return (
-    <View>
-      <View>
+    <View style={styles.container}>
+      <View style={styles.inputArea}>
         <CustomInput 
-          label={'아이디'} 
+          label={'아이디'}
           value={loginData.memEmail}
           onChangeText={text => handleLoginData(text, 'memEmail')}
         />
-
+      </View>
+      <View style={styles.inputArea}>
         <CustomInput 
           label={'비밀번호'}
           isPw={true}
           value={loginData.memPw}
           onChangeText={text => handleLoginData(text, 'memPw')}
         />
-
-        <CustomButton 
-          label={'로그인'} 
-          size={'large'} 
-          onPress={() => {login()}}
-        />
+      </View>
+      <View style={styles.inputArea}>
+        <CustomButton label='로그인' onPress={() => login()}/>
       </View>
     </View>
   )
@@ -61,4 +65,12 @@ const LoginScreen = () => {
 
 export default LoginScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container : {
+    flex : 1,
+    padding : 20
+  },
+  inputArea :{
+    marginBottom : 14
+  }
+})

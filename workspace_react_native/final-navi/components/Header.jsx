@@ -1,22 +1,53 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
-import { colors } from '../constants/colorConstant';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserSubFromToken } from '../redux/authHelper';
+import * as SecureStore from 'expo-secure-store';
+import { logoutReducer } from '../redux/authSlice';
 
 const Header = () => {
   const router = useRouter();
+  const auth = useSelector(state => state.auth);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    SecureStore.deleteItemAsync('accessToken')
+    .then(() => {
+      console.log("SecureStore 삭제 완료");
+      dispatch(logoutReducer());
+      router.replace('/')
+    })
+    .catch(error => console.error("SecureStore 오류:", error));
+  };
 
   return (
-    <View style={styles.headerContainder}>
+    <View style={styles.headerContainer}>
       <Text style={styles.headerTitle}>Header</Text>
       <View style={styles.loginStatus}>
-        <Pressable onPress={() => router.push('/auth/login')}>
-          <Text>로그인</Text>
-        </Pressable>
         
-        <Pressable onPress={() => router.push('/auth/join')}>
-          <Text>회원가입</Text>
-        </Pressable>
+        {
+          auth.isLogin 
+          ? 
+          <>
+            <Text>{getUserSubFromToken(auth.token)} 님 반갑습니다.</Text>
+            <Pressable onPress={handleLogout}>
+              <Text>Logout</Text>
+            </Pressable>
+          </>
+          :
+          <>
+            <Pressable onPress={() => router.push('/auth/login')}>
+              <Text>Login</Text>
+            </Pressable>
+            
+            <Pressable onPress={() => router.push('/auth/join')}>
+              <Text>Join</Text>
+            </Pressable>
+          </>
+        }
+
       </View>
     </View>
   )
@@ -25,25 +56,22 @@ const Header = () => {
 export default Header
 
 const styles = StyleSheet.create({
-  headerContainder : {
-    height : 60,
-    backgroundColor : colors.ORANGE_600,
-    borderBottomEndRadius : 10,
-    borderBottomStartRadius : 10,
+  headerContainer:{
     flexDirection : 'row',
-    alignItems : 'center',
     justifyContent : 'space-between',
+    alignItems : 'center',
+    paddingHorizontal : 10,
+    height:70,
+    backgroundColor:'orange'
   },
-
-  loginStatus : {
-    marginRight : 10,
+  headerTitle:{
+    fontSize:30,
+    color:'white'
+  },
+  loginStatus :{
     flexDirection : 'row',
-    gap : 10,
-  },
-
-  headerTitle : {
-    marginLeft : 10,
-    fontSize : 30,
-    color : colors.WHITE,
-  },
+    justifyContent : 'flex-end',
+    gap: 12,
+    paddingRight: 12
+  }
 })
